@@ -1,0 +1,72 @@
+# IDE/Editor
+.idea/
+*.swp
+*.swo
+*~
+
+# Backups
+*.bak
+*.bak.*
+
+# Archives
+*.tar.gz
+*.zip
+
+# Cache and temp directories
+**/Cache/
+**/Cache_Data/
+**/GPUCache/
+**/Code Cache/
+**/CachedData/
+**/CachedExtensionVSIXs/
+**/ShaderCache/
+**/*cache*/
+**/tmp/
+**/temp/
+
+# Browser data (too large/volatile)
+chromium/
+BraveSoftware/
+google-chrome*/
+microsoft-edge*/
+vivaldi*/
+mozilla/
+falkon/
+
+# Electron apps with large caches
+discord/
+Discord/
+vesktop/
+Proton Mail/
+Netflix/
+Postman/
+clara-verse/
+Claude/
+
+# JetBrains (has embedded repos)
+JetBrains/
+
+# Other large/volatile directories
+VirtualBox/
+spicetify/
+obs-studio/
+unity3d/
+
+# Sensitive data - secrets, keys, tokens
+1Password/
+Proton/
+Discord Key Storage/
+a2ln/
+freerdp/
+github-copilot/
+go/telemetry/
+
+# Large log files
+faugus-launcher/logs/
+
+# All log files
+*.log
+*.log.*
+**/logs/
+LOG
+LOG.old
