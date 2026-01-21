@@ -1,0 +1,29 @@
+# -*- mode: conf -*-
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+set $lang 'us'
+set $term footclient
+set $browser /usr/bin/vivaldi-snapshot  --enable-wayland-ime --enable-features=MiddleClickAutoscroll
+set $editor nvim
+set $menu nwg-drawer
+set $fileManager thunar
+set $launcher pkill wofi || wofi --show drun --allow-markup --allow-images
+set $open_clipboard pkill wofi ||  cliphist list | wofi -S dmenu | cliphist decode | wl-copy 
+
+# workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+

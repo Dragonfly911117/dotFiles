@@ -1,0 +1,26 @@
+anchor=top-left
+font=JetBrainsMono 12
+background-color=#1a1b26
+text-color=#c0caf5
+width=500
+height=500
+margin=20,20,20
+padding=10
+border-size=2
+border-color=#8478de
+border-radius=5
+default-timeout=10000
+group-by=summary
+max-visible=-1
+output=HDMI-A-1
+progress-color=#8478de
+
+[urgency=low]
+background-color=#1a1b26
+text-color=#565f89
+border-color=#414868
+
+[urgency=high]
+background-color=#1a1b26
+text-color=#f7768e
+border-color=#f7768e
