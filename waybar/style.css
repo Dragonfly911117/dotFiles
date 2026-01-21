@@ -1,0 +1,301 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/*
+Tokyo Night (with #8478de accent)
+Background
+bg       #1a1b26 - (26,27,38)
+bg_dark  #16161e - (22,22,30)
+bg_hl    #33467c - (51,70,124)
+Foreground
+fg       #c0caf5 - (192,202,245)
+fg_dark  #a9b1d6 - (169,177,214)
+comment  #565f89 - (86,95,137)
+Accent (main)
+purple   #8478de - (132,120,222)
+purple_l #9d8cef - (157,140,239)
+Other accents
+red      #f7768e - (247,118,142)
+orange   #e0af68 - (224,175,104)
+yellow   #e0af68 - (224,175,104)
+green    #9ece6a - (158,206,106)
+cyan     #7dcfff - (125,207,255)
+*/
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    color: #c0caf5;
+    background-color: rgba(26,27,38,0.6);
+    border-radius: 5px;
+    font-family:JetBrainsMonoNerdFont;
+    font-size: 13px;
+   }
+
+*:hover {
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.modules-left > widget:first-child > * {
+    margin-left: 15px;
+}
+.modules-right > widget:last-child > * {
+    margin-right: 15px;
+}
+tooltip label {
+    font-family:JetBrainsMonoNerdFont;
+    font-size: 13px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+/* Common module settings*/
+#window,
+#network,
+#privacy,
+#custom-updates,
+#custom-pacman,
+#custom-keyboard-layout,
+#cpu,
+#temperature,
+#disk,
+#memory,
+#wireplumber,
+#battery,
+#idle_inhibitor,
+#backlight,
+#bluetooth,
+#tray,
+#clock,
+#custom-playerctl,
+#custom-settings,
+#custom-power,
+#custom-reboot,
+#custom-reboot-uefi,
+#custom-log-off,
+#custom-suspend,
+#custom-lock {
+    background: rgba(132,120,222,0.4);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    padding:.1rem 1rem;
+    margin: 1px 1px;
+}
+
+#window:hover,
+#network:hover,
+#privacy:hover,
+#custom-updates:hover,
+#custom-pacman:hover,
+#custom-keyboard-layout:hover,
+#cpu:hover,
+#temperature:hover,
+#disk:hover,
+#memory:hover,
+#wireplumber:hover,
+#battery:hover,
+#idle_inhibitor:hover,
+#backlight:hover,
+#bluetooth:hover,
+#tray:hover,
+#tray .active:hover,
+#clock:hover,
+#custom-playerctl:hover,
+#custom-settings:hover,
+#custom-power:hover,
+#custom-reboot:hover,
+#custom-reboot-uefi:hover,
+#custom-log-off:hover,
+#custom-suspend:hover,
+#custom-lock:hover {
+    background: rgba(132,120,222,0.8);
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+#custom-launcher,
+#window,
+#network {
+    background: transparent;
+    box-shadow: none;
+}
+
+#custom-launcher,
+#custom-power {
+    padding-right: 1.1rem;
+}
+
+#workspaces:hover {
+    background: none;
+}
+
+#workspaces button {
+    border-radius: 5px;
+    padding: 0px 6px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+#workspaces button.focused {
+    border: 0.9px solid #c0caf5;
+}
+
+#cpu:hover,
+#custom-settings:hover {
+    background-image: url('chevron-right.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+#window {
+    border-style: hidden;
+    margin-top: 1px;
+}
+
+#privacy {
+    color: #e0af68;
+    background: rgba(224,175,104,0.1);
+}
+
+#privacy:hover {
+    color: #e0af68;
+    background: rgba(224,175,104,0.3);
+}
+
+#wireplumber.muted,
+#bluetooth.off,
+#idle_inhibitor.deactivated {
+    color: #565f89;
+}
+
+#cpu.warning,
+#memory.warning,
+#battery.warning {
+    color: #e0af68;
+    background: rgba(224,175,104,0.1);
+}
+
+#cpu.warning:hover,
+#memory.warning:hover,
+#battery.warning:hover {
+    background: rgba(224,175,104,0.3);
+}
+
+#workspaces button.urgent,
+#network.disabled,
+#network.disconnected,
+#cpu.critical,
+#memory.critical,
+#temperature.critical,
+#battery.critical {
+    color: #f7768e;
+    background: rgba(247,118,142,0.1);
+}
+
+#workspaces button.urgent:hover,
+#network.disabled:hover,
+#network.disconnected:hover,
+#cpu.critical:hover,
+#memory.critical:hover,
+#temperature.critical:hover,
+#battery.critical:hover {
+    background: rgba(247,118,142,0.3);
+}
+
+@keyframes blink {
+    to {
+        color: #1a1b26;
+        background-color: #c0caf5;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Claude Code Usage Monitor Styling */
+#custom-claude-usage {
+  padding: 0 8px;
+  margin: 0 4px;
+  border-radius: 4px;
+  background: transparent;
+  font-family: 'Adwaita Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect: show clickable */
+#custom-claude-usage:hover {
+  background: rgba(132, 120, 222, 0.15);
+}
+
+/* Color-coded by usage level */
+#custom-claude-usage.claude-low {
+  color: #8478de;  /* Green: low usage (0-49%) */
+}
+
+#custom-claude-usage.claude-mid {
+  color: #f9e2af;  /* Yellow: medium usage (50-79%) */
+}
+
+#custom-claude-usage.claude-high {
+  color: #f38ba8;  /* Red: high usage (80-99%) */
+}
+
+/* OpenAI Codex CLI Usage Monitor Styling */
+#custom-codex-usage {
+  padding: 0 8px;
+  margin: 0 4px;
+  border-radius: 4px;
+  background: transparent;
+  font-family: 'Adwaita Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#custom-codex-usage:hover {
+  background: rgba(132, 120, 222, 0.15);
+}
+
+#custom-codex-usage.codex-low {
+  color: #8478de;  /* Green: low usage */
+}
+
+#custom-codex-usage.codex-mid {
+  color: #f9e2af;  /* Yellow: medium usage */
+}
+
+#custom-codex-usage.codex-high {
+  color: #f38ba8;  /* Red: high usage */
+}
+
+/* Error state (network failures, auth errors, etc.) */
+#custom-claude-usage.critical,
+#custom-codex-usage.critical {
+  color: #ff5555;
+  background: rgba(255, 85, 85, 0.1);
+}
